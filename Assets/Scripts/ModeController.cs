@@ -13,6 +13,12 @@ namespace NaruDesign.State
         [SerializeField]
         private Button buttonDumpName;
 
+        [SerializeField]
+        private Button buttonSpecialA;
+
+        [SerializeField]
+        private Button buttonSpecialB;
+
         void Start()
         {
             buttonGoNext.onClick.AddListener(() =>
@@ -22,6 +28,14 @@ namespace NaruDesign.State
             buttonDumpName.onClick.AddListener(() =>
             {
                 state.DumpName(this);
+            });
+            buttonSpecialA.onClick.AddListener(() =>
+            {
+                state.SpecialA(this);
+            });
+            buttonSpecialB.onClick.AddListener(() =>
+            {
+                state.SpecialB(this);
             });
 
             state = ModeA.Instance;

@@ -3,19 +3,19 @@ using System.Collections;
 
 namespace NaruDesign.State
 {
-    public class ModeA : Singleton<ModeA>, IModeState
+    public class ModeA : ModeState<ModeA>
     {
-        public void EnterState(IMode context)
+        public override void EnterState(IMode context)
         {
             Debug.Log("ModeA : EnterState()");
         }
 
-        public void ExitState(IMode context)
+        public override void ExitState(IMode context)
         {
             Debug.Log("ModeA : ExitState()");
         }
 
-        public void GoNext(IMode context)
+        public override void GoNext(IMode context)
         {
             StartCoroutine(GoNextCoroutine(context));
         }
@@ -27,9 +27,14 @@ namespace NaruDesign.State
             context.ChangeState(ModeB.Instance);
         }
 
-        public void DumpName(IMode context)
+        public override void DumpName(IMode context)
         {
             Debug.Log("--- ModeA ---");
+        }
+
+        public override void SpecialA(IMode context)
+        {
+            Debug.Log("*** Special A ***");
         }
     }
 }
