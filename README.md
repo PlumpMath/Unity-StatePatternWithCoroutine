@@ -1,0 +1,2 @@
+# Unity-StatePatternWithCoroutine
+コルーチンを使えるステートパターンのサンプル
