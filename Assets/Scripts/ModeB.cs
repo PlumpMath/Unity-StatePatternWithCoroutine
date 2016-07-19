@@ -2,26 +2,31 @@
 
 namespace NaruDesign.State
 {
-    public class ModeB : Singleton<ModeB>, IModeState
+    public class ModeB : ModeState<ModeB>
     {
-        public void EnterState(IMode context)
+        public override void EnterState(IMode context)
         {
             Debug.Log("ModeB : EnterState()");
         }
 
-        public void ExitState(IMode context)
+        public override void ExitState(IMode context)
         {
             Debug.Log("ModeB : ExitState()");
         }
 
-        public void GoNext(IMode context)
+        public override void GoNext(IMode context)
         {
             context.ChangeState(ModeA.Instance);
         }
 
-        public void DumpName(IMode context)
+        public override void DumpName(IMode context)
         {
             Debug.Log("+++ ModeB +++");
+        }
+
+        public override void SpecialB(IMode context)
+        {
+            Debug.Log("*** Special B ***");
         }
     }
 }
